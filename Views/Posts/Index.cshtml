@@ -11,7 +11,7 @@
                 dataType: 'html',
                 url: '@Url.Action("Create")',
                 success: function (result) {
-                    $('#CreateAjax').html(result);
+                    $('#view').html(result);
                 }
             });
         });
@@ -23,7 +23,19 @@
                 dataType: 'html',
                 url: '@Url.Action("Edit")',
                 success: function (result) {
-                    $('#EditAjax').html(result);
+                    $('#view').html(result);
+                }
+            });
+        });
+        $('.detail-post').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'GET',
+                data: $(this).serialize(),
+                dataType: 'html',
+                url: '@Url.Action("Details")',
+                success: function (result) {
+                    $('#view').html(result);
                 }
             });
         });
@@ -33,8 +45,7 @@
 
 <h1>Post List</h1>
 <a class="btn btn-info display-create">Add Post</a>
-<div id="CreateAjax"></div>
-<div id="EditAjax"></div>
+<div id="view"></div>
 <ul>
     @foreach(var post in Model)
     {
@@ -43,6 +54,10 @@
         <form action="Create" class="edit-post">
             <input name="id" type="hidden" value="@post.PostId" />
             <input type="submit" value="Edit" />
+        </form>
+        <form action="Details" class="detail-post">
+            <input name="id" type="hidden" value="@post.PostId" />
+            <input type="submit" value="Details" />
         </form>
     </li>
     }
