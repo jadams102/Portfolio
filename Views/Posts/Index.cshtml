@@ -1,0 +1,14 @@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Post List</h1>
+<a class="btn btn-info" asp-action="Create">Add Post</a>
+<ul>
+    @foreach(var post in Model)
+    {
+        <li>@post.Title</li>
+    }
+</ul>
