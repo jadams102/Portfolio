@@ -10,10 +10,11 @@ namespace Portfolio.Models
         }
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySql(@"Server=localhost;Port=8889;database=gummibear;uid=root;pwd=root;");
+            options.UseMySql(@"Server=localhost;Port=8889;database=joel-portfolio;uid=root;pwd=root;");
         }
         public PortfolioContext(DbContextOptions<PortfolioContext> options)
           : base(options)

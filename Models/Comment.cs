@@ -7,13 +7,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Portfolio.Models
 {
-    public class Post
+    public class Comment
     {
         [Key]
+        public int CommentId { get; set; }
+        public string User { get; set; }
+        public string Body { get; set; }
         public int PostId { get; set; }
-        public string title { get; set; }
-        public DateTime date { get; set; }
-        public string body { get; set; }
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual Post Post { get; set; }
     }
 }

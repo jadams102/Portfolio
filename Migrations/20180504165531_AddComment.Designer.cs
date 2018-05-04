@@ -8,9 +8,10 @@ using Portfolio.Models;
 namespace Portfolio.Migrations
 {
     [DbContext(typeof(PortfolioContext))]
-    partial class PortfolioContextModelSnapshot : ModelSnapshot
+    [Migration("20180504165531_AddComment")]
+    partial class AddComment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.5");
@@ -52,7 +53,7 @@ namespace Portfolio.Migrations
             modelBuilder.Entity("Portfolio.Models.Comment", b =>
                 {
                     b.HasOne("Portfolio.Models.Post", "Post")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
