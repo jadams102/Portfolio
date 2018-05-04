@@ -23,7 +23,7 @@ namespace Portfolio.Controllers
         [HttpPost]
         public IActionResult Create(Post post)
         {
-            DateTime date = new DateTime();
+            DateTime date = DateTime.Today;
             post.Date = date;
             db.Posts.Add(post);
             db.SaveChanges();
