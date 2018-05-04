@@ -23,7 +23,7 @@ namespace Portfolio.Controllers
         public IActionResult Create(Post post)
         {
             DateTime date = new DateTime();
-            post.date = date;
+            post.Date = date;
             db.Posts.Add(post);
             db.SaveChanges();
             return RedirectToAction("Index");

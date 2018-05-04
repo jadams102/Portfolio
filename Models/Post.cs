@@ -11,9 +11,9 @@ namespace Portfolio.Models
     {
         [Key]
         public int PostId { get; set; }
-        public string title { get; set; }
-        public DateTime date { get; set; }
-        public string body { get; set; }
+        public string Title { get; set; }
+        public DateTime Date { get; set; }
+        public string Body { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
     }
 }
