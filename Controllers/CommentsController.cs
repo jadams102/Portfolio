@@ -41,8 +41,8 @@ namespace Portfolio.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.FirstOrDefault(comment => comment.CommentId == id);
-            db.Remove(comment);
+            Comment thisComment = db.Comments.FirstOrDefault(comment => comment.CommentId == id);
+            db.Remove(thisComment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

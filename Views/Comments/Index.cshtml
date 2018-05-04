@@ -1,0 +1,66 @@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.detail-comment').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'GET',
+                data: $(this).serialize(),
+                dataType: 'html',
+                url: '@Url.Action("Details")',
+                success: function (result) {
+                    $('#view').html(result);
+                }
+            });
+        });
+        $('.delete-comment').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'GET',
+                data: $(this).serialize(),
+                dataType: 'html',
+                url: '@Url.Action("Delete")',
+                success: function (result) {
+                    $('#view').html(result);
+                }
+            });
+        });
+    });
+</script>
+@model List<Portfolio.Models.Comment>
+
+<h1>Comments</h1>
+
+<ul>
+    @{ if (Model.Count > 0)
+        {
+            foreach (var comment in Model)
+            {
+                <li>
+                    @comment.User / @comment.Body / @comment.PostId
+                    <form action="Details" class="detail-comment">
+                        <input name="id" type="hidden" value="@comment.CommentId" />
+                        <input class="btn btn-info" type="submit" value="Details" />
+                    </form>
+                    <form action="Delete" class="delete-comment">
+                        <input name="id" type="hidden" value="@comment.CommentId" />
+                        <input class="btn btn-danger" type="submit" value="Delete" />
+                    </form>
+                </li>
+            }
+
+        }
+        else
+        {
+            <h2>No Comments!</h2>
+        }
+
+    }
+
+</ul>
+
