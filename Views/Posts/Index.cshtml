@@ -39,6 +39,18 @@
                 }
             });
         });
+            $('.delete-post').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'GET',
+                data: $(this).serialize(),
+                dataType: 'html',
+                url: '@Url.Action("Delete")',
+                success: function (result) {
+                    $('#view').html(result);
+                }
+            });
+        });
     });
 
 </script>
@@ -53,11 +65,15 @@
         @post.Title
         <form action="Create" class="edit-post">
             <input name="id" type="hidden" value="@post.PostId" />
-            <input type="submit" value="Edit" />
+            <input class="btn btn-info" type="submit" value="Edit" />
         </form>
         <form action="Details" class="detail-post">
             <input name="id" type="hidden" value="@post.PostId" />
-            <input type="submit" value="Details" />
+            <input class="btn btn-info" type="submit" value="Details" />
+        </form>
+        <form action="Delete" class="delete-post">
+            <input name="id" type="hidden" value="@post.PostId" />
+            <input class="btn btn-danger" type="submit" value="Delete" />
         </form>
     </li>
     }
