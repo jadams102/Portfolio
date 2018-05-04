@@ -28,5 +28,10 @@ namespace Portfolio.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Edit(int id)
+        {
+            var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            return View(thisPost);
+        }
     }
 }

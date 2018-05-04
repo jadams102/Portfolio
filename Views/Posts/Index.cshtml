@@ -3,12 +3,27 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.display-create').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Create")',
+                success: function (result) {
+                    $('#CreateAjax').html(result);
+                }
+            });
+        });
+    });
+</script>
 
 <h1>Post List</h1>
-<a class="btn btn-info" asp-action="Create">Add Post</a>
+<a class="btn btn-info display-create">Add Post</a>
+<div id="CreateAjax"></div>
 <ul>
     @foreach(var post in Model)
     {
-        <li>@post.Title</li>
+    <li>@post.Title</li>
     }
 </ul>
