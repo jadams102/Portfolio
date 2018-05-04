@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 
 namespace Portfolio.Models
 {
-    public class PortfolioContext : DbContext
+    public class PortfolioContext : IdentityDbContext<AppUser>
     {
         public PortfolioContext()
         {

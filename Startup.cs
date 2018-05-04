@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Portfolio.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Portfolio
 {
@@ -37,6 +38,18 @@ namespace Portfolio
            .AddDbContext<PortfolioContext>(options =>
                                      options
                                           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddIdentity<AppUser, IdentityRole>()
+  .AddEntityFrameworkStores<PortfolioContext>()
+  .AddDefaultTokenProviders();
+
+
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 0;
+                options.Password.RequireDigit = false;
+            });
 
         }
 
@@ -56,6 +69,8 @@ namespace Portfolio
             }
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
