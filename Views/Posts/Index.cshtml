@@ -15,15 +15,35 @@
                 }
             });
         });
+        $('.edit-post').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'GET',
+                data: $(this).serialize(),
+                dataType: 'html',
+                url: '@Url.Action("Edit")',
+                success: function (result) {
+                    $('#EditAjax').html(result);
+                }
+            });
+        });
     });
+
 </script>
 
 <h1>Post List</h1>
 <a class="btn btn-info display-create">Add Post</a>
 <div id="CreateAjax"></div>
+<div id="EditAjax"></div>
 <ul>
     @foreach(var post in Model)
     {
-    <li>@post.Title</li>
+    <li>
+        @post.Title
+        <form action="Create" class="edit-post">
+            <input name="id" type="hidden" value="@post.PostId" />
+            <input type="submit" value="Edit" />
+        </form>
+    </li>
     }
 </ul>

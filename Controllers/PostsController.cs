@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Portfolio.Controllers
 {
@@ -32,6 +33,13 @@ namespace Portfolio.Controllers
         {
             var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
             return View(thisPost);
+        }
+        [HttpPost]
+        public IActionResult Edit(Post post)
+        {
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
