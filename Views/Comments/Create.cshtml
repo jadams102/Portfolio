@@ -2,8 +2,6 @@
 @{
     var postId = ViewBag.PostId;
 }
-
-<h1>Add Post</h1>
 @using (Html.BeginForm())
 {
 <input data-val="true" data-val-required="The PostId field is required." id="PostId" name="PostId" type="hidden" value="@postId">    <div class="form-group">

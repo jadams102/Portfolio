@@ -12,7 +12,7 @@
 {
     <script type="text/javascript">
     $(document).ready(function () {
-        $('.add-comment').submit(function (event) {
+        $('.add-comment-@post.PostId').submit(function (event) {
             event.preventDefault();
             $.ajax({
                 type: 'GET',
@@ -34,7 +34,7 @@
             <p>@post.Body</p>
             <p>@post.Date.ToString("MM/dd/yyyy")</p>
         </div>
-        <form action="Create" class="add-comment">
+        <form action="Create" class="add-comment-@post.PostId">
             <input name="id" type="hidden" value="@post.PostId" />
             <input class="btn btn-info" type="submit" value="Add Comment" />
         </form>
