@@ -16,15 +16,11 @@ namespace Portfolio.Controllers
             List<Comment> model = db.Comments.ToList();
             return View(model);
         }
-        public IActionResult IndexByPost(int id)
-        {
-            var postComments = db.Posts.FirstOrDefault(posts => posts.PostId == id).Comments.ToList();
-            return View(postComments);
-        }
         public IActionResult Create(int id)
         {
-            Post model = db.Posts.FirstOrDefault(posts => posts.PostId == id);
-            return View(model);
+            Post post = db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            ViewBag.PostId = post.PostId;
+            return View();
         }
         [HttpPost]
         public IActionResult Create(Comment comment)

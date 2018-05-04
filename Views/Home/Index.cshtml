@@ -2,4 +2,61 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Home Index</h1>
+
+@model IEnumerable<Portfolio.Models.Post>
+
+
+
+<h1>Blog Posts</h1>
+@foreach (var post in Model)
+{
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('.add-comment').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'GET',
+                data: $(this).serialize(),
+                dataType: 'html',
+                url: '@Url.Action("Create", "Comments")',
+                success: function (result) {
+                    $('#view-@post.PostId').html(result);
+                }
+            });
+        });
+    });
+    </script>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            @post.Title
+        </div>
+        <div class="panel-body">
+            <p>@post.Body</p>
+            <p>@post.Date.ToString("MM/dd/yyyy")</p>
+        </div>
+        <form action="Create" class="add-comment">
+            <input name="id" type="hidden" value="@post.PostId" />
+            <input class="btn btn-info" type="submit" value="Add Comment" />
+        </form>
+        @if (post.Comments.Count > 0)
+        {
+        <div class="panel-body">
+            <ul>
+                @foreach(var comment in post.Comments)
+                {
+                <li>
+                    <p>@comment.User</p>
+                    <p>@comment.Body</p>
+                </li>
+
+                }
+            </ul>
+
+        </div>
+
+
+        }
+
+        <div id="view-@post.PostId"></div>
+    </div>
+}
