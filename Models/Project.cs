@@ -11,12 +11,13 @@ namespace Portfolio.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Url { get; set; }
+        public string Html_Url { get; set; }
 
         public static List<Project> GetProjects()
         {
             var client = new RestClient("https://api.github.com/");
             var request = new RestRequest("search/repositories?q=user:joelaphoto&sort=stars&order=asc", Method.GET);
+            request.AddHeader("User-Agent", "joelaphoto");
             var response = new RestResponse();
             Task.Run(async () =>
             {

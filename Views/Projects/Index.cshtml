@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Portfolio.Models.Project>
+
+@foreach (var project in Model)
+{
+    <div class="panel">
+        <div class="panel-heading">
+            <h2>@project.Name</h2>
+        </div>
+        <div class="panel-body">
+            <p>@project.Description</p>
+            <a class="btn btn-danger" href="@project.Html_Url">View On Github</a>
+        </div>
+    </div>
+
+}
