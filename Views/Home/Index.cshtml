@@ -6,6 +6,7 @@
 @model IEnumerable<Portfolio.Models.Post>
 
 <img id="header" src="https://i.imgur.com/SUtUQ7O.png" />
+
 @foreach (var post in Model)
 {
     <script type="text/javascript">
@@ -24,7 +25,6 @@
         });
     });
     </script>
-    <img src="https://i.imgur.com/SUtUQ7O.png" />
     <div class="panel panel-info">
         <div class="panel-heading">
             @post.Title
