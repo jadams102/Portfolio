@@ -39,3 +39,30 @@ textarea {
 #header {
     max-width: 100%;
 }
+
+
+#aboutImg {
+    float: right;
+    max-width: 25%;
+    border-radius: 10px;
+}
+
+.img-wrapper {
+    padding: 10px
+}
+
+.boldText {
+    font-weight: 700;
+}
+
+.expLocation {
+    display: block;
+    float: right;
+    text-align: right;
+}
+
+.expTitle {
+    display: inline;
+    text-align: left;
+}
+

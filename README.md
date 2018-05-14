@@ -13,13 +13,13 @@ Portfolio built using C# and .NET with Identity
 2. Comments on Blog Posts
 3. Authentication
 4. Projects Section
+5. Contact Info Section
+6. Resume Link
+7. Skills Section
+8. Bio Section
 
 ## Planned Features
-1. Resume Section
-2. Skills Section
-3. Education Section
-4. Bio Section
-5. Contact Info Section
+1. Education Section
 
 *GitHub repo:* https://github.com/joelaphoto/Portfolio
 
@@ -31,6 +31,7 @@ Requires .NET Framework SDK, MAMP
 3. Run command "dotnet restore" on folder containing .csproj file.
 2. Run command "dotnet ef database update" in the project folder to create database structure.
 3. Run command "dotnet run" and navigate to http://localhost:XXXXX as indicated by console.
+4. Navigate to Accounts link in navbar and register a user to log in and access comments and blog post admin routes.
 
 ## Known Bugs
 * No known bugs at this time.
