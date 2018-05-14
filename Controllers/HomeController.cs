@@ -28,5 +28,10 @@ namespace Portfolio.Controllers
             var model = _db.Posts.Include(post => post.Comments);
             return View(model);
         }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
     }
 }

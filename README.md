@@ -12,6 +12,7 @@ Portfolio built using C# and .NET with Identity
 1. Blog Section
 2. Comments on Blog Posts
 3. Authentication
+4. Projects Section
 
 ## Planned Features
 1. Resume Section
@@ -19,7 +20,6 @@ Portfolio built using C# and .NET with Identity
 3. Education Section
 4. Bio Section
 5. Contact Info Section
-6. Projects Section
 
 *GitHub repo:* https://github.com/joelaphoto/Portfolio
 
