@@ -64,15 +64,15 @@
     {
     <li>
         @post.Title
-        <form action="Create" class="edit-post">
+        <form action="Create" class="edit-post index-btn">
             <input name="id" type="hidden" value="@post.PostId" />
             <input class="btn btn-info" type="submit" value="Edit" />
         </form>
-        <form action="Details" class="detail-post">
+        <form action="Details" class="detail-post index-btn">
             <input name="id" type="hidden" value="@post.PostId" />
             <input class="btn btn-info" type="submit" value="Details" />
         </form>
-        <form action="Delete" class="delete-post">
+        <form action="Delete" class="delete-post index-btn">
             <input name="id" type="hidden" value="@post.PostId" />
             <input class="btn btn-danger" type="submit" value="Delete" />
         </form>

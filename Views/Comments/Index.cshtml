@@ -44,11 +44,11 @@
             {
                 <li>
                     @comment.User / @comment.Body / @comment.PostId
-                    <form action="Details" class="detail-comment">
+                    <form action="Details" class="detail-comment index-btn">
                         <input name="id" type="hidden" value="@comment.CommentId" />
                         <input class="btn btn-info" type="submit" value="Details" />
                     </form>
-                    <form action="Delete" class="delete-comment">
+                    <form action="Delete" class="delete-comment index-btn">
                         <input name="id" type="hidden" value="@comment.CommentId" />
                         <input class="btn btn-danger" type="submit" value="Delete" />
                     </form>
